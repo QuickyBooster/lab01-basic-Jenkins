@@ -1,0 +1,3 @@
+CREATE USER 'booster'@'%' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON db_example.* TO 'booster'@'%';
+FLUSH PRIVILEGES;
