@@ -18,15 +18,15 @@ pipeline {
             }
         }
 
-        // stage('Packaging/Pushing imagae') {
+        stage('Packaging/Pushing imagae') {
 
-        //     steps {
-        //         withDockerRegistry(credentialsId: 'docker-account', url: 'https://index.docker.io/v1/') {
-        //             sh 'docker build -t quickybooster/springboot .'
-        //             sh 'docker push quickybooster/springboot'
-        //         }
-        //     }
-        // }
+            steps {
+                withDockerRegistry(credentialsId: 'docker-account', url: 'https://index.docker.io/v1/') {
+                    sh 'docker build -t quickybooster/springboot .'
+                    sh 'docker push quickybooster/springboot'
+                }
+            }
+        }
 
         stage('Deploy MySQL to DEV') {
             steps {
