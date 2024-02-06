@@ -22,6 +22,7 @@ pipeline {
 
             steps {
                 withDockerRegistry(credentialsId: 'docker-account', url: 'https://index.docker.io/v1/') {
+                    sh 'echo 123'
                     sh 'docker build -t quickybooster/springboot .'
                     sh 'docker push quickybooster/springboot'
                 }
