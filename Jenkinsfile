@@ -15,18 +15,14 @@ pipeline {
                 sh 'mvn --version'
                 sh 'java -version'
                 sh 'mvn clean package -Dmaven.test.failure.ignore=true'
-            }
-        }
-        stage('echo hello world') {
-            steps {
-                sh 'echo hello world'
+                sh 'docker --version'
             }
         }
 
         stage('Packaging/Pushing imagae') {
 
             steps {
-                withDockerRegistry(credentialsId: 'docker-account', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker-account') {
                     sh 'echo 123'
                     sh 'docker build -t quickybooster/springboot .'
                     sh 'docker push quickybooster/springboot'
