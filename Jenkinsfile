@@ -17,6 +17,11 @@ pipeline {
                 sh 'mvn clean package -Dmaven.test.failure.ignore=true'
             }
         }
+        stage('echo hello world') {
+            steps {
+                sh 'echo hello world'
+            }
+        }
 
         stage('Packaging/Pushing imagae') {
 
